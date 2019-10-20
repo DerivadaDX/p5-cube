@@ -3,8 +3,9 @@ const side = 400;
 const hSide = side / 2;
 const qSide = hSide / 2;
 
-let y = qSide,
-	x = qSide;
+let y = qSide, x = qSide;
+let rotate = false;
+let angle = 0;
 
 function setup() {
 	container = select('.container');
@@ -15,7 +16,10 @@ function setup() {
 }
 
 function draw() {
-	// put drawing code here
+	if (rotate) {
+		angle++;
+		container.style('transform', rotateString(['x', 'y'], radians(angle)));
+	}
 }
 
 function keyPressed() {
@@ -40,9 +44,26 @@ function keyPressed() {
 			select('.left').style('transform', `rotateY(90deg) translateZ(${-x}px)`);
 			select('.right').style('transform', `rotateY(-90deg) translateZ(${-x}px)`);
 			break;
+		case ESCAPE:
+			container.style('transform', rotateString(['x', 'y'], radians(0)));
+			rotate = false;
+			return false;
+		case 32:
+			rotate = !rotate;
+			return false;
 		default:
 			break;
 	}
+}
+
+function rotateString(arr, rads) {
+	let str = '';
+
+	arr.forEach(e =>
+		str += `rotate${e.toUpperCase()}(${rads}rad) `
+	);
+
+	return str;
 }
 
 function prepareContainer() {
