@@ -1,0 +1,41 @@
+body {
+	background: gray;
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+	position: absolute;
+	display: block;
+	z-index: -1;
+	left: 0;
+	top: 0;
+}
+
+.base {
+	background: black;
+	perspective: 900px;
+	margin-top: 50px;
+	height: 500px;
+	width: 500px;
+}
+
+.container {
+	transform-style: preserve-3d;
+	/* transform: rotateY(-15deg) rotateX(-20deg); */
+}
+
+.container div {
+	background: rgba(50, 150, 150, 0.5);
+	transform-style: preserve-3d;
+	position: absolute;
+}
+
+.border {
+	border: 1px solid white;
+}
+
+.center-horizontal {
+	margin-right: auto;
+	margin-left: auto;
+}
