@@ -26,7 +26,6 @@ canvas {
 }
 
 .container div {
-	background: rgba(50, 150, 150, 0.5);
 	transform-style: preserve-3d;
 	position: absolute;
 }
@@ -38,4 +37,28 @@ canvas {
 .center-horizontal {
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.top {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.bottom {
+	background: rgba(255, 213, 00, 0.5);
+}
+
+.front {
+	background: rgba(00, 155, 72, 0.5);
+}
+
+.back {
+	background: rgba(00, 69, 173, 0.5);
+}
+
+.left {
+	background: rgba(255, 137, 00, 0.5);
+}
+
+.right {
+	background: rgba(137, 0, 0, 0.5);
 }
