@@ -3,7 +3,6 @@ const side = 400;
 const hSide = side / 2;
 const qSide = hSide / 2;
 
-let test = side / 4;
 let y = qSide,
 	x = qSide;
 
