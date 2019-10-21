@@ -17,8 +17,7 @@ function setup() {
 
 function draw() {
 	if (rotate) {
-		angle++;
-		container.style('transform', rotateString(['x', 'y'], radians(angle)));
+		container.style('transform', rotateString(['x', 'y'], radians(++angle)));
 	}
 }
 
