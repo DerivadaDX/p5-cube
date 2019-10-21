@@ -22,7 +22,6 @@ canvas {
 
 .container {
 	transform-style: preserve-3d;
-	/* transform: rotateY(-15deg) rotateX(-20deg); */
 }
 
 .container div {
