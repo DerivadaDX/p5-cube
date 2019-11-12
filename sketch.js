@@ -11,6 +11,7 @@ function setup() {
 	container = select('.container');
 	faces = selectAll('.face');
 
+	prepareFixedSquares();
 	prepareContainer();
 	prepareFaces();
 }
@@ -84,4 +85,9 @@ function prepareFaces() {
 
 	select('.left').style('transform', `rotateY(90deg) translateZ(-${qSide}px)`);
 	select('.right').style('transform', `rotateY(-90deg) translateZ(-${qSide}px)`);
+}
+
+function prepareFixedSquares() {
+	selectAll('.fixed-square').forEach((fs) => fs.size(side, side));
+	select('#fs_2').style('transform', 'rotateY(90deg)');
 }
