@@ -1,9 +1,9 @@
 let container, faces;
 const side = 400;
-const hSide = side / 2;
-const qSide = hSide / 2;
+const halfSide = side / 2;
+const quarterSide = halfSide / 2;
 
-let y = qSide, x = qSide;
+let y = quarterSide, x = quarterSide;
 let rotate = false;
 let angle = 0;
 
@@ -73,18 +73,18 @@ function prepareContainer() {
 
 function prepareFaces() {
 	faces.forEach(face => {
-		face.size(hSide, hSide);
+		face.size(halfSide, halfSide);
 		face.center();
 	});
 
-	select('.top').style('transform', `rotateX(-90deg) translateZ(-${qSide}px)`);
-	select('.bottom').style('transform', `rotateX(90deg) translateZ(-${qSide}px)`);
+	select('.top').style('transform', `rotateX(-90deg) translateZ(-${quarterSide}px)`);
+	select('.bottom').style('transform', `rotateX(90deg) translateZ(-${quarterSide}px)`);
 
-	select('.back').style('transform', `translateZ(-${qSide}px)`);
-	select('.front').style('transform', `rotateX(180deg) translateZ(-${qSide}px)`);
+	select('.back').style('transform', `translateZ(-${quarterSide}px)`);
+	select('.front').style('transform', `rotateX(180deg) translateZ(-${quarterSide}px)`);
 
-	select('.left').style('transform', `rotateY(90deg) translateZ(-${qSide}px)`);
-	select('.right').style('transform', `rotateY(-90deg) translateZ(-${qSide}px)`);
+	select('.left').style('transform', `rotateY(90deg) translateZ(-${quarterSide}px)`);
+	select('.right').style('transform', `rotateY(-90deg) translateZ(-${quarterSide}px)`);
 }
 
 function prepareFixedSquares() {
