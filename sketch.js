@@ -24,37 +24,17 @@ function draw() {
 
 function keyPressed() {
 	switch (keyCode) {
-		case UP_ARROW:
-			y += 10;
-			select('.top').style('transform', `rotateX(-90deg) translateZ(${-y}px)`);
-			select('.bottom').style('transform', `rotateX(90deg) translateZ(${-y}px)`);
-			break;
-		case DOWN_ARROW:
-			y -= 10;
-			select('.top').style('transform', `rotateX(-90deg) translateZ(${-y}px)`);
-			select('.bottom').style('transform', `rotateX(90deg) translateZ(${-y}px)`);
-			break;
-		case RIGHT_ARROW:
-			x += 10;
-			select('.left').style('transform', `rotateY(90deg) translateZ(${-x}px)`);
-			select('.right').style('transform', `rotateY(-90deg) translateZ(${-x}px)`);
-			break;
-		case LEFT_ARROW:
-			x -= 10;
-			select('.left').style('transform', `rotateY(90deg) translateZ(${-x}px)`);
-			select('.right').style('transform', `rotateY(-90deg) translateZ(${-x}px)`);
+		case 32: // SPACE
+			rotate = !rotate;
 			break;
 		case ESCAPE:
-			container.style('transform', rotateString(['x', 'y'], radians(0)));
-			rotate = false;
 			angle = 0;
-			return false;
-		case 32:
-			rotate = !rotate;
-			return false;
-		default:
+			rotate = false;
+			container.style('transform', rotateString(['x', 'y'], radians(angle)));
 			break;
 	}
+
+	return false;
 }
 
 function rotateString(arr, rads) {
