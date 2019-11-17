@@ -47,6 +47,7 @@ function keyPressed() {
 		case ESCAPE:
 			container.style('transform', rotateString(['x', 'y'], radians(0)));
 			rotate = false;
+			angle = 0;
 			return false;
 		case 32:
 			rotate = !rotate;
