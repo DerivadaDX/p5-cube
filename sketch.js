@@ -23,21 +23,6 @@ function draw() {
 	}
 }
 
-// function keyPressed() {
-// 	switch (keyCode) {
-// 		case 32: // SPACE
-// 			rotate = !rotate;
-// 			break;
-// 		case ESCAPE:
-// 			angle = 0;
-// 			rotate = false;
-// 			cube._container.style('transform', rotateString(['x', 'y'], radians(angle)));
-// 			break;
-// 	}
-
-// 	return false;
-// }
-
 function rotateString(arr, rads) {
 	let str = '';
 
