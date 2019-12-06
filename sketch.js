@@ -14,6 +14,7 @@ function setup() {
 	cube = new Cube();
 
 	cube.setParent(select('.base'));
+	cube.start();
 }
 
 function draw() {
@@ -22,20 +23,20 @@ function draw() {
 	}
 }
 
-function keyPressed() {
-	switch (keyCode) {
-		case 32: // SPACE
-			rotate = !rotate;
-			break;
-		case ESCAPE:
-			angle = 0;
-			rotate = false;
-			cube._container.style('transform', rotateString(['x', 'y'], radians(angle)));
-			break;
-	}
+// function keyPressed() {
+// 	switch (keyCode) {
+// 		case 32: // SPACE
+// 			rotate = !rotate;
+// 			break;
+// 		case ESCAPE:
+// 			angle = 0;
+// 			rotate = false;
+// 			cube._container.style('transform', rotateString(['x', 'y'], radians(angle)));
+// 			break;
+// 	}
 
-	return false;
-}
+// 	return false;
+// }
 
 function rotateString(arr, rads) {
 	let str = '';
@@ -81,5 +82,22 @@ class Cube {
 	setParent(el) {
 		this._container.parent(el).center();
 		return this;
+	}
+
+	start() {
+		addEventListener('keyup', (k) => {
+			switch (k.code) {
+				case 'Space':
+					rotate = !rotate;
+					break;
+				case 'Escape':
+					angle = 0;
+					rotate = false;
+					this._container.style('transform', rotateString(['x', 'y'], radians(angle)));
+					break;
+			}
+
+			return false;
+		});
 	}
 }
