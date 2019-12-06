@@ -1,13 +1,7 @@
-let container, faces;
-const side = 400;
-const halfSide = side / 2;
-const quarterSide = halfSide / 2;
-
-let y = quarterSide, x = quarterSide;
 let rotate = false;
 let angle = 0;
-
 let cube;
+
 function setup() {
 	noCanvas();
 
