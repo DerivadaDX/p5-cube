@@ -12,23 +12,12 @@ function setup() {
 }
 
 function draw() {
-	if (rotate) {
-		cube._container.style('transform', rotateString(['x', 'y'], radians(++angle)));
-	}
-}
-
-function rotateString(arr, rads) {
-	let str = '';
-
-	arr.forEach(e =>
-		str += `rotate${e.toUpperCase()}(${rads}rad) `
-	);
-
-	return str;
+	cube.refresh();
 }
 
 class Cube {
 	constructor(side) {
+		// sides
 		this._side = side || 400;
 		this._hSide = this._side / 2;
 		this._qSide = this._side / 4;
@@ -56,6 +45,10 @@ class Cube {
 
 			return face;
 		});
+
+		// rotation
+		this._rotate = false;
+		this._angle = 0;
 	}
 
 	setParent(el) {
@@ -67,16 +60,34 @@ class Cube {
 		addEventListener('keyup', (k) => {
 			switch (k.code) {
 				case 'Space':
-					rotate = !rotate;
+					this._rotate = !this._rotate;
 					break;
 				case 'Escape':
-					angle = 0;
-					rotate = false;
-					this._container.style('transform', rotateString(['x', 'y'], radians(angle)));
+					this._angle = 0;
+					this._rotate = false;
+					this._container.style('transform', this._rotateString(['x', 'y'], radians(this._angle)));
 					break;
 			}
 
 			return false;
 		});
+	}
+
+	refresh() {
+		if (this._rotate) {
+			this._container.style('transform', this._rotateString(['x', 'y'], radians(++this._angle)));
+		}
+
+		return this;
+	}
+
+	_rotateString(arr, rads) {
+		let str = '';
+
+		arr.forEach(e =>
+			str += `rotate${e.toUpperCase()}(${rads}rad) `
+		);
+
+		return str;
 	}
 }
