@@ -8,7 +8,7 @@ function setup() {
 	cube = new Cube();
 
 	cube.setParent(select('.base'));
-	cube.start();
+	cube.init();
 }
 
 function draw() {
@@ -56,7 +56,7 @@ class Cube {
 		return this;
 	}
 
-	start() {
+	init() {
 		addEventListener('keyup', (k) => {
 			switch (k.code) {
 				case 'Space':
