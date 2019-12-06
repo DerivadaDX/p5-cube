@@ -51,32 +51,36 @@ function rotateString(arr, rads) {
 class Cube {
 	constructor(side) {
 		this._side = side || 400;
-		this._halfSide = this._side / 2;
-		this._quarterSide = this._side / 4;
+		this._hSide = this._side / 2;
+		this._qSide = this._side / 4;
 
-		this._container = createDiv().size(this._side, this._side).addClass('container');
+		// .container
+		this._container = createDiv().addClass('container');
+		this._container.size(this._side, this._side);
 
+		// .face's
 		this._faces = [
-			'top', 'bottom',
-			'front', 'back',
-			'left', 'right'
-		].map(faceType => createDiv().size(this._halfSide, this._halfSide).addClass(`face ${faceType} border`).parent(this._container));
+			{ name: 'top', degrees: -90, coord: 'X' },
+			{ name: 'bottom', degrees: 90, coord: 'X' },
+			{ name: 'front', degrees: 180, coord: 'X' },
+			{ name: 'back', degrees: -180, coord: 'X' },
+			{ name: 'left', degrees: 90, coord: 'Y' },
+			{ name: 'right', degrees: -90, coord: 'Y' }
+		].map(cfg => {
+			let face = createDiv().addClass('face');
 
-		
+			face.style('transform', `rotate${cfg.coord}(${cfg.degrees}deg) translateZ(-${this._qSide}px)`);
+			face.size(this._hSide, this._hSide);
+			face.addClass(`${cfg.name} border`);
+			face.parent(this._container);
+			face.center();
 
-	select('.top').style('transform', `rotateX(-90deg) translateZ(-${this._quarterSide}px)`);
-	select('.bottom').style('transform', `rotateX(90deg) translateZ(-${this._quarterSide}px)`);
-
-	select('.back').style('transform', `translateZ(-${this._quarterSide}px)`);
-	select('.front').style('transform', `rotateX(180deg) translateZ(-${this._quarterSide}px)`);
-
-	select('.left').style('transform', `rotateY(90deg) translateZ(-${this._quarterSide}px)`);
-	select('.right').style('transform', `rotateY(-90deg) translateZ(-${this._quarterSide}px)`);
+			return face;
+		});
 	}
 
 	setParent(el) {
 		this._container.parent(el).center();
-		this._faces.forEach(f => f.center());
 		return this;
 	}
 
