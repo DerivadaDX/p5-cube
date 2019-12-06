@@ -4,14 +4,6 @@ body {
 	margin: 0;
 }
 
-canvas {
-	position: absolute;
-	display: block;
-	z-index: -1;
-	left: 0;
-	top: 0;
-}
-
 .base {
 	background: black;
 	perspective: 900px;
@@ -24,7 +16,7 @@ canvas {
 	transform-style: preserve-3d;
 }
 
-.container div {
+div.container>div {
 	transform-style: preserve-3d;
 	position: absolute;
 }
