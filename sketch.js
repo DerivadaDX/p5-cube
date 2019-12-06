@@ -31,7 +31,7 @@ function keyPressed() {
 		case ESCAPE:
 			angle = 0;
 			rotate = false;
-			container.style('transform', rotateString(['x', 'y'], radians(angle)));
+			cube._container.style('transform', rotateString(['x', 'y'], radians(angle)));
 			break;
 	}
 
