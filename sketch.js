@@ -14,7 +14,6 @@ function setup() {
 	cube = new Cube();
 
 	cube.setParent(select('.base'));
-	// cube.show();
 }
 
 function draw() {
@@ -82,9 +81,5 @@ class Cube {
 	setParent(el) {
 		this._container.parent(el).center();
 		return this;
-	}
-
-	show() {
-		this._container.show();
 	}
 }
