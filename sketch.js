@@ -31,7 +31,7 @@ class Cube {
 			{ name: 'top', degrees: -90, coord: 'X' },
 			{ name: 'bottom', degrees: 90, coord: 'X' },
 			{ name: 'front', degrees: 180, coord: 'X' },
-			{ name: 'back', degrees: -180, coord: 'X' },
+			{ name: 'back', degrees: 0, coord: 'X' },
 			{ name: 'left', degrees: 90, coord: 'Y' },
 			{ name: 'right', degrees: -90, coord: 'Y' }
 		].map(cfg => {
