@@ -25,10 +25,15 @@ class Cube {
 		// .base
 		this._base = createDiv().addClass('base');
 
+		// #platform
+		this._platform = createDiv().id('platform').addClass('container');
+		this._platform.size(this._side, this._side);
+		this._platform.parent(this._base);
+
 		// .container
 		this._container = createDiv().addClass('container');
 		this._container.size(this._side, this._side);
-		this._container.parent(this._base);
+		this._container.parent(this._platform);
 
 		// .face's
 		this._faces = [
@@ -58,7 +63,9 @@ class Cube {
 	setParent(el) {
 		this._base.parent(el);
 		this._base.size(el.width, el.height);
-		this._container.center();
+
+		this._platform.center();
+		this._platform.style('transform', `translateZ(${this._qSide + this._qSide / 4}px)`);
 
 		return this;
 	}
