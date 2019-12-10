@@ -38,8 +38,8 @@ class Cube {
 			let face = createDiv().addClass('face');
 
 			face.style('transform', `rotate${cfg.coord}(${cfg.degrees}deg) translateZ(-${this._qSide}px)`);
+			face.addClass(`${cfg.name} container border`);
 			face.size(this._hSide, this._hSide);
-			face.addClass(`${cfg.name} border`);
 			face.parent(this._container);
 			face.center();
 
