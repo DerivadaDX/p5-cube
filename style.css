@@ -4,12 +4,15 @@ body {
 	margin: 0;
 }
 
-.base {
+.main {
 	background: black;
-	perspective: 900px;
 	margin-top: 50px;
 	height: 500px;
 	width: 500px;
+}
+
+.base {
+	perspective: 900px;
 }
 
 .container {

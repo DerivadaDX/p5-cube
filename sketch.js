@@ -7,7 +7,7 @@ function setup() {
 
 	cube = new Cube();
 
-	cube.setParent(select('.base'));
+	cube.setParent(select('.main'));
 	cube.init();
 }
 
@@ -22,9 +22,13 @@ class Cube {
 		this._hSide = this._side / 2;
 		this._qSide = this._side / 4;
 
+		// .base
+		this._base = createDiv().addClass('base');
+
 		// .container
 		this._container = createDiv().addClass('container');
 		this._container.size(this._side, this._side);
+		this._container.parent(this._base);
 
 		// .face's
 		this._faces = [
@@ -52,7 +56,10 @@ class Cube {
 	}
 
 	setParent(el) {
-		this._container.parent(el).center();
+		this._base.parent(el);
+		this._base.size(el.width, el.height);
+		this._container.center();
+
 		return this;
 	}
 
